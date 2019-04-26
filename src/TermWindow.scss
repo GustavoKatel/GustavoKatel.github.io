@@ -1,0 +1,17 @@
+
+.term {
+ width: 80%;
+
+ .header {
+    background-color: black;
+    display: flex;
+    justify-content: right;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 0.7em;
+
+        div {
+            margin: 5px;
+        }
+    }
+}
