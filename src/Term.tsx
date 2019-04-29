@@ -15,21 +15,21 @@ const term = {
     theme: {
         background: '#000000',
         black: '#000000',
-        brightBlack: '#6272A4',
-        brightBlue: '#D6ACFF',
-        brightCyan: '#A4FFFF',
-        brightGreen: '#69FF94',
-        brightMagenta: '#FF92DF',
-        brightRed: '#FF6E6E',
-        brightWhite: '#FFFFFF',
-        brightYellow: '#FFFFA5',
-        blue: '#BD93F9',
-        cyan: '#8BE9FD',
-        green: '#50FA7B',
-        magenta: '#FF79C6',
-        red: '#FF5555',
-        white: '#F8F8F2',
-        yellow: '#F1FA8C',
+        // brightBlack: '#6272A4',
+        // brightBlue: '#D6ACFF',
+        // brightCyan: '#A4FFFF',
+        // brightGreen: '#69FF94',
+        // brightMagenta: '#FF92DF',
+        // brightRed: '#FF6E6E',
+        // brightWhite: '#FFFFFF',
+        // brightYellow: '#FFFFA5',
+        // blue: '#BD93F9',
+        // cyan: '#8BE9FD',
+        // green: '#50FA7B',
+        // magenta: '#FF79C6',
+        // red: '#FF5555',
+        // white: '#F8F8F2',
+        // yellow: '#F1FA8C',
     },
 };
 
@@ -44,6 +44,7 @@ export default class Term extends React.Component<{}, {}> {
     public componentDidMount() {
         this.xterm = new Terminal(term);
         this.xterm.open(this.containerRef.current as HTMLElement);
+        (this.xterm as any).fit();
 
         this.startTyping();
 
@@ -60,10 +61,10 @@ export default class Term extends React.Component<{}, {}> {
     }
 
     public startTyping() {
-        this.write(chalk.green(' λ ') + chalk.blue('Hello!'), 500);
-        this.write(chalk.green(' λ ') + chalk.blue('I\'m ') + chalk.red('Gustavo'), 500);
-        this.write(chalk.green(' λ ') + chalk.blue('A passionate software engineer'), 2000);
-        this.write(chalk.green(' λ ') + chalk.blue('You can find my contact info and some of my projects below'), 2000);
+        this.write(chalk.green(' λ ') + chalk.cyan('Hello!'), 500);
+        this.write(chalk.green(' λ ') + chalk.cyan('I\'m ') + chalk.red('Gustavo'), 500);
+        this.write(chalk.green(' λ ') + chalk.cyan('A passionate software engineer'), 2000);
+        this.write(chalk.green(' λ ') + chalk.cyan('You can find my contact info and some of my projects below'), 2000);
         this.write(chalk.green(' λ '));
     }
 

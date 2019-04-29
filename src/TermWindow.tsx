@@ -14,6 +14,8 @@ export default class TermWindow extends React.Component<{}, {}> {
             </div>
 
             <Term />
+
+            <div className="footer"></div>
         </div>;
     }
 
