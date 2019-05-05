@@ -74,6 +74,10 @@
   justify-content: center;
   max-width: 10em;
 
+  @media (max-width: $small-screen) {
+    max-width: 100%;
+  }
+
   .tag {
     flex-basis: 10%;
     margin: 5px;
