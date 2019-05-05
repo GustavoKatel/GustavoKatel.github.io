@@ -1,3 +1,4 @@
+@import './variables.scss';
 
 .card {
     display: flex;
@@ -7,13 +8,18 @@
     margin-left: 2em;
     margin-right: 2em;
     margin-bottom: 2em;
+    max-width: 70%;
+
+    @media (max-width: $medium-screen) {
+        max-width: 90%;
+    }
 
     .header {
         font-size: calc(10px + 2vmin);
         min-width: 8vmin;
         padding-top: 0.5em;
 
-        @media (max-width: 490px) {
+        @media (max-width: $small-screen) {
             width: 100%;
             font-size: calc(10px + 5vmin);
             padding-top: inherit;
@@ -22,8 +28,8 @@
     }
 
     .content {
-        flex-grow: 2;
-        @media (max-width: 490px) {
+        @media (max-width: $small-screen) {
+            flex-grow: 1;
             margin-bottom: 0.5em;
         }
     }
@@ -33,7 +39,11 @@
         min-width: 8vmin;
         padding-left: 5px;
         padding-right: 5px;
-        flex-grow: 1;
+        align-self: center;
+
+        @media (max-width: $small-screen) {
+            flex-grow: 1;
+        }
     }
 
 }
