@@ -1,9 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faTwitterSquare, faTelegram, faMedium, faKeybase } from '@fortawesome/free-brands-svg-icons'
-import { faAddressBook, faChevronCircleDown, faEnvelope, faProjectDiagram, faBriefcase } from '@fortawesome/free-solid-svg-icons'
+import { faAddressBook, faEnvelope, faProjectDiagram, faBriefcase, faChevronCircleUp } from '@fortawesome/free-solid-svg-icons'
 import { Github } from 'react-social-github';
 import cx from 'classnames';
+import smoothscroll from 'smoothscroll-polyfill';
 
 import './App.scss';
 import TermWindow from './TermWindow';
@@ -15,6 +16,8 @@ import avatyLogo from './logos/avaty.png';
 import rnpLogo from './logos/rnp.png';
 import actionsLogo from './logos/actions.png';
 import esssLogo from './logos/esss.svg';
+
+smoothscroll.polyfill();
 
 const CreateContactButtons: React.FC = () => {
   return (
@@ -57,6 +60,14 @@ const Tags: React.FC<TagsProps> = (props) => {
   </div>
 };
 
+const smoothScrollTo = (id: string) => {
+  const el = document.getElementById(id.replace('#', ''));
+  if (el) {
+    console.log(el, id);
+    el.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 interface FastLinkProps {
   animated: boolean;
   icon: IconDefinition;
@@ -66,12 +77,20 @@ interface FastLinkProps {
 }
 
 const FastLink: React.FC<FastLinkProps> = (props) => {
-  return <div className={cx('button', { 'animated bounce': props.animated }, props.className)} id={props.id}>
-    <a href={props.href}>
-      <FontAwesomeIcon icon={props.icon} />
-    </a>
+  return <div className={cx('fast-link', { 'animated bounce': props.animated }, props.className)} id={props.id} onClick={() => smoothScrollTo(props.href || '')}>
+    <FontAwesomeIcon icon={props.icon} />
   </div>
 }
+
+const calcFabClass = (): string => {
+  const el = document.getElementById('root');
+  if (el) {
+    if (el.scrollTop === 0) {
+      return 'animate fadeOut'
+    }
+  }
+  return 'animate fadeIn';
+};
 
 const App: React.FC = () => {
   const contactButtons = CreateContactButtons({});
@@ -90,7 +109,9 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <FastLink icon={faChevronCircleUp} className="scroll-top" animated={false} href="#header" />
+
+      <header className="App-header" id="header">
         <TermWindow/>
 
         <div className="fast-links">

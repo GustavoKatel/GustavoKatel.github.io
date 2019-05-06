@@ -5,6 +5,19 @@
   background-color: #282c34;
 }
 
+.scroll-top {
+  position: fixed;
+  right: 10px;
+  bottom: 5px;
+  color: #ffffff;
+  font-size: calc(10px + 3vmin);
+}
+
+.fast-link {
+  margin: 10px;
+  cursor: pointer;
+}
+
 .App-header {
   min-height: 100vh;
   display: flex;
@@ -17,14 +30,9 @@
 
   .fast-links {
     margin-top: 10%;
-    font-size: calc(10px + 3vmin);
     display: flex;
     flex-wrap: wrap;
     font-size: calc(10px + 2.5vmin);
-
-    .button {
-      margin: 2px;
-    }
 
     .content {
       animation-delay: 6s;
