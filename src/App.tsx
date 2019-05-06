@@ -1,12 +1,20 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedin, faTwitterSquare, faTelegram, faMedium } from '@fortawesome/free-brands-svg-icons'
-import { faAddressBook, faChevronCircleDown, faEnvelope, faProjectDiagram } from '@fortawesome/free-solid-svg-icons'
+import { faLinkedin, faTwitterSquare, faTelegram, faMedium, faKeybase } from '@fortawesome/free-brands-svg-icons'
+import { faAddressBook, faChevronCircleDown, faEnvelope, faProjectDiagram, faBriefcase } from '@fortawesome/free-solid-svg-icons'
 import { Github } from 'react-social-github';
+import cx from 'classnames';
 
 import './App.scss';
 import TermWindow from './TermWindow';
 import Card from './Card';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import CompanyCard from 'CompanyCard';
+
+import avatyLogo from './logos/avaty.png';
+import rnpLogo from './logos/rnp.png';
+import actionsLogo from './logos/actions.png';
+import esssLogo from './logos/esss.svg';
 
 const CreateContactButtons: React.FC = () => {
   return (
@@ -25,6 +33,9 @@ const CreateContactButtons: React.FC = () => {
       </a>
       <a href="https://medium.com/@gustavokatel" target="_blank">
         <FontAwesomeIcon icon={faMedium} />
+      </a>
+      <a href="https://keybase.io/gustavokatel" target="_blank">
+        <FontAwesomeIcon icon={faKeybase} />
       </a>
     </div>
   );
@@ -46,22 +57,52 @@ const Tags: React.FC<TagsProps> = (props) => {
   </div>
 };
 
+interface FastLinkProps {
+  animated: boolean;
+  icon: IconDefinition;
+  className?: string;
+  href?: string;
+  id?: string;
+}
+
+const FastLink: React.FC<FastLinkProps> = (props) => {
+  return <div className={cx('button', { 'animated bounce': props.animated }, props.className)} id={props.id}>
+    <a href={props.href}>
+      <FontAwesomeIcon icon={props.icon} />
+    </a>
+  </div>
+}
+
 const App: React.FC = () => {
   const contactButtons = CreateContactButtons({});
+
+  const fastLinkContact = (
+    <FastLink icon={faAddressBook} className="content" animated={true} href="#contact" />
+  );
+
+  const fastLinkProjects = (
+    <FastLink icon={faProjectDiagram} className="projects" animated={true} href="#projects" />
+  );
+
+  const fastLinkWork = (
+    <FastLink icon={faBriefcase} className="work" animated={true} href="#work" />
+  );
 
   return (
     <div className="App">
       <header className="App-header">
         <TermWindow/>
 
-        <div className="scroll-down">
-          <a href="#content">
-            <FontAwesomeIcon icon={faChevronCircleDown} className="button animated bounce" />
-          </a>
+        <div className="fast-links">
+          { fastLinkContact }
+          { fastLinkProjects }
+          { fastLinkWork }
         </div>
       </header>
 
       <div id="content" className="App-content">
+
+        <FastLink id="contact" animated={false} icon={faAddressBook} className="content-header" />
 
         <div className="contact-card">
           <Card icon={<FontAwesomeIcon icon={faAddressBook} />} footer={contactButtons}>
@@ -69,7 +110,9 @@ const App: React.FC = () => {
           </Card>
         </div>
 
-        <div className="other-cards">
+        <FastLink id="projects" animated={false} icon={faProjectDiagram} className="content-header" />
+
+        <div className="project-cards">
           <Card
             icon={<FontAwesomeIcon icon={faProjectDiagram} />}
             footer={
@@ -125,6 +168,68 @@ const App: React.FC = () => {
           >
             <Github type="widget" tooltipOnHover={true} user="TecRen-UFPB" repo="RayTracerQt" ></Github>
           </Card>
+        </div>
+
+        <FastLink id="work" animated={false} icon={faBriefcase} className="content-header" />
+
+        <div className="work-cards">
+
+          <CompanyCard
+            title="Engineering Simulation And Scientific Software (ESSS)"
+            logo={esssLogo}
+            footer={
+              <Tags tags={[
+                'python', 'pytest', 'c/c++', 'c#', 'Qt', 'Numpy', 'OpenGL', 'Flask'
+              ]} />
+            }
+            timeset="January 2018 – December 2018"
+            location="Florianópolis, Brazil"
+          >
+            Software engineer
+          </CompanyCard>
+
+          <CompanyCard
+            title="Actions Security"
+            logo={actionsLogo}
+            footer={
+              <Tags tags={[
+                'python', 'pytest', 'c/c++', 'libuv', 'pybind11', 'tcp proxies'
+              ]} />
+            }
+            timeset="July 2017 – December 2017"
+            location="Remote"
+          >
+            Software engineer
+          </CompanyCard>
+
+          <CompanyCard
+            title="RNP - UFPB"
+            logo={rnpLogo}
+            footer={
+              <Tags tags={[
+                'c/c++', 'libuv', 'Linux', 'http/https', 'tcp', 'network', 'tcp proxy'
+              ]} />
+            }
+            timeset="September 2015 – July 2017"
+            location="João Pessoa - PB, Brasil"
+          >
+            Software engineer. Developer of a mitigation tool to protect http servers from DoS attacks. Patent acquired
+          </CompanyCard>
+
+          <CompanyCard
+            title="Avaty"
+            logo={avatyLogo}
+            footer={
+              <Tags tags={[
+                'android', 'java'
+              ]} />
+            }
+            timeset="December 2015 – March 2016"
+            location="João Pessoa - PB, Brasil"
+          >
+            Android engineer. Developer of android apps.
+          </CompanyCard>
+
         </div>
 
       </div>

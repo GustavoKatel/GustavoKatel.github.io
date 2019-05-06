@@ -15,12 +15,27 @@
   color: white;
   padding-top: 10%;
 
-  .scroll-down {
+  .fast-links {
     margin-top: 10%;
     font-size: calc(10px + 3vmin);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: calc(10px + 2.5vmin);
 
     .button {
+      margin: 2px;
+    }
+
+    .content {
       animation-delay: 6s;
+    }
+
+    .projects {
+      animation-delay: 6.5s;
+    }
+
+    .work {
+      animation-delay: 7s;
     }
 
     a {
@@ -62,7 +77,13 @@
   justify-content: center;
 }
 
-.other-cards {
+.project-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.work-cards {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -73,6 +94,7 @@
   flex-wrap: wrap;
   justify-content: center;
   max-width: 10em;
+  flex-grow: 1;
 
   @media (max-width: $small-screen) {
     max-width: 100%;
@@ -86,5 +108,20 @@
     border-radius: 5px;
     font-size: calc(10px + 0.4vmin);
     padding: 3px;
+  }
+}
+
+.content-header {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: calc(10px + 3vmin);
+  color: #ffffff;
+
+  @media (max-width: $small-screen) {
+    font-size: calc(10px + 6vmin);
+  }
+
+  a {
+    color: inherit;
   }
 }

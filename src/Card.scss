@@ -9,9 +9,11 @@
     margin-right: 2em;
     margin-bottom: 2em;
     max-width: 70%;
+    flex-basis: 58%;
 
     @media (max-width: $medium-screen) {
         max-width: 90%;
+        flex-basis: 80%;
     }
 
     .header {
@@ -40,10 +42,12 @@
         padding-left: 5px;
         padding-right: 5px;
         align-self: center;
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
 
-        @media (max-width: $small-screen) {
-            flex-grow: 1;
-        }
+        // @media (max-width: $small-screen) {
+        // }
     }
 
 }
