@@ -20,6 +20,7 @@ export default class CompanyCard extends React.Component<CompanyCardProps, {}> {
             <div className="logo">
                 <img src={this.props.logo} alt={this.props.title}/>
             </div>
+            <div className="name">{this.props.title}</div>
             <div className="timeset">{this.props.timeset}</div>
             <div className="location">{this.props.location}</div>
             {this.props.children}
