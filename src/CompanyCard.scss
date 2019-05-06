@@ -10,6 +10,12 @@
         padding: 24px;
         border-radius: 3px;
         max-width: 240px;
+        min-width: 250px;
+
+        @media (max-width: $medium-screen) {
+            width: 75%;
+            max-width: inherit;
+        }
 
         @media (max-width: $small-screen) {
             margin: 0.5em;
