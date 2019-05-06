@@ -22,22 +22,22 @@ smoothscroll.polyfill();
 const CreateContactButtons: React.FC = () => {
   return (
     <div className="contact-buttons">
-      <a href="mailto:gbritosampaio@gmail.com" target="_blank">
+      <a href="mailto:gbritosampaio@gmail.com" target="_blank" rel="noopener noreferrer">
         <FontAwesomeIcon icon={faEnvelope} />
       </a>
-      <a href="https://www.linkedin.com/in/gbritosampaio" target="_blank">
+      <a href="https://www.linkedin.com/in/gbritosampaio" target="_blank" rel="noopener noreferrer">
         <FontAwesomeIcon icon={faLinkedin} />
       </a>
-      <a href="https://twitter.com/GustavoKatel" target="_blank">
+      <a href="https://twitter.com/GustavoKatel" target="_blank" rel="noopener noreferrer">
         <FontAwesomeIcon icon={faTwitterSquare} />
       </a>
-      <a href="https://t.me/GustavoKatel" target="_blank">
+      <a href="https://t.me/GustavoKatel" target="_blank" rel="noopener noreferrer">
         <FontAwesomeIcon icon={faTelegram} />
       </a>
-      <a href="https://medium.com/@gustavokatel" target="_blank">
+      <a href="https://medium.com/@gustavokatel" target="_blank" rel="noopener noreferrer">
         <FontAwesomeIcon icon={faMedium} />
       </a>
-      <a href="https://keybase.io/gustavokatel" target="_blank">
+      <a href="https://keybase.io/gustavokatel" target="_blank" rel="noopener noreferrer">
         <FontAwesomeIcon icon={faKeybase} />
       </a>
     </div>
