@@ -12,12 +12,9 @@
         max-width: 240px;
         min-width: 250px;
 
-        @media (max-width: $medium-screen) {
+        @media (max-width: $small-screen) {
             width: 75%;
             max-width: inherit;
-        }
-
-        @media (max-width: $small-screen) {
             margin: 0.5em;
             flex-grow: 1;
             margin-bottom: 0.5em;
