@@ -44,6 +44,7 @@ export default class Term extends React.Component<{}, {}> {
     public componentDidMount() {
         this.xterm = new Terminal(term);
         this.xterm.open(this.containerRef.current as HTMLElement);
+        this.xterm.on('scroll', e => { document.querySelector('body')!.scrollBy({top: e}); });
         (this.xterm as any).fit();
 
         this.startTyping();

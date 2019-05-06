@@ -63,7 +63,6 @@ const Tags: React.FC<TagsProps> = (props) => {
 const smoothScrollTo = (id: string) => {
   const el = document.getElementById(id.replace('#', ''));
   if (el) {
-    console.log(el, id);
     el.scrollIntoView({ behavior: 'smooth' });
   }
 };
