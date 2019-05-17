@@ -137,6 +137,18 @@ const App: React.FC = () => {
             icon={<FontAwesomeIcon icon={faProjectDiagram} />}
             footer={
               <Tags tags={[
+                'golang', 'p2p', 'libp2p',
+                'distributed', 'storage', 'ipfs'
+              ]} />
+            }
+          >
+            <Github type="widget" tooltipOnHover={true} user="runletapp" repo="crabfs" ></Github>
+          </Card>
+
+          <Card
+            icon={<FontAwesomeIcon icon={faProjectDiagram} />}
+            footer={
+              <Tags tags={[
                 'golang', 'react', 'electron',
                 'nodejs', 'rabbitmq', 'typescript', 'grpc'
               ]} />
