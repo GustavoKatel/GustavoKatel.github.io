@@ -161,6 +161,17 @@ const App: React.FC = () => {
             icon={<FontAwesomeIcon icon={faProjectDiagram} />}
             footer={
               <Tags tags={[
+                'golang', 'async', 'sync', 'utils'
+              ]} />
+            }
+          >
+            <Github type="widget" tooltipOnHover={true} user="GustavoKatel" repo="asyncutils" ></Github>
+          </Card>
+
+          <Card
+            icon={<FontAwesomeIcon icon={faProjectDiagram} />}
+            footer={
+              <Tags tags={[
                 'c++', 'python', 'pybind', 'ModSecurity', 'pytest', 'TDD', 'conda'
               ]} />
             }
